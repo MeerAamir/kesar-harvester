@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kesar Harvester | Pure Kashmiri Saffron</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --forest: #0A1A0C;
+            --forest2: #122017;
+            --gold: #C9900A;
+            --gold-lt: #E5A820;
+            --gold-pale: #FBF0D4;
+            --cream: #FDF8EE;
+            --crimson: #8B2020;
+            --muted: #6B7C5E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--cream);
+            color: var(--forest);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* -------------------------------------
+           SECTION 1: Topbar
+        ------------------------------------- */
+        .topbar {
+            background-color: var(--forest);
+            color: var(--gold);
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* -------------------------------------
+           SECTION 2: Sticky Nav
+        ------------------------------------- */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(253, 248, 238, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            border-bottom: 1px solid rgba(10, 26, 12, 0.05);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--forest);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--cream);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-lt);
+            transform: translateY(-1px);
+        }
+
+        /* -------------------------------------
+           SECTION 3: Hero
+        ------------------------------------- */
+        .hero {
+            background-color: var(--forest);
+            color: var(--cream);
+            padding: 80px 24px 60px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            min-height: 80vh;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(201, 144, 10, 0.15) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        /* Grain texture overlay */
+        .hero::after {
+            content: "";
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--gold-pale);
+        }
+
+        .hero p.subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: rgba(253, 248, 238, 0.8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline-gold {
+            background-color: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-outline-gold:hover {
+            background-color: rgba(201, 144, 10, 0.1);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            border-top: 1px solid rgba(253, 248, 238, 0.1);
+            padding-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-title {
+            color: var(--gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 4px;
+        }
+
+        .stat-desc {
+            font-size: 0.85rem;
+            color: rgba(253, 248, 238, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* -------------------------------------
+           SECTION 4: Trust Strip
+        ------------------------------------- */
+        .trust-strip {
+            background-color: var(--gold-pale);
+            padding: 24px 0;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .trust-track {
+            display: flex;
+            gap: 40px;
+            padding-left: 24px;
+            white-space: nowrap;
+            /* Simple scrolling animation can be added here if needed, keeping static for now to ensure mobile friendliness without horizontal scroll issues, using flex-wrap instead or scrolling */
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--forest);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .trust-icon {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* -------------------------------------
+           SECTION 5: Products
+        ------------------------------------- */
+        .products {
+            padding: 80px 24px;
+            background-color: var(--cream);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--forest);
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--muted);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(10, 26, 12, 0.05);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-visual {
+            height: 200px;
+            background: linear-gradient(135deg, var(--forest2), var(--forest));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .product-content {
+            padding: 24px;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--forest);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .product-desc {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+
+        .size-selector {
+            margin-bottom: 24px;
+        }
+
+        .size-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border: 2px solid rgba(10, 26, 12, 0.05);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .size-option:hover {
+            border-color: rgba(201, 144, 10, 0.5);
+        }
+
+        .size-option.selected {
+            border-color: var(--gold);
+            background-color: var(--gold-pale);
+        }
+
+        .size-weight {
+            font-weight: 600;
+        }
+
+        .size-price {
+            color: var(--forest);
+            font-weight: 700;
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        /* -------------------------------------
+           SECTION 6: How to Order
+        ------------------------------------- */
+        .how-to-order {
+            padding: 80px 24px;
+            background-color: var(--forest);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .how-to-order .section-title {
+            color: var(--gold-pale);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step-card {
+            background-color: rgba(253, 248, 238, 0.05);
+            padding: 32px 24px;
+            border-radius: 16px;
+            border: 1px solid rgba(201, 144, 10, 0.2);
+            position: relative;
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--gold);
+            color: var(--forest);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--gold-pale);
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* -------------------------------------
+           SECTION 7: Story
+        ------------------------------------- */
+        .story {
+            padding: 80px 24px;
+            background-color: var(--cream);
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .story-visual {
+            background-color: var(--gold-pale);
+            border-radius: 24px;
+            height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: 30px;
+            right: -20px;
+            background-color: var(--forest);
+            color: var(--gold);
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(10, 26, 12, 0.15);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .story-content h2 {
+            font-size: 2.5rem;
+            color: var(--forest);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .story-content p {
+            margin-bottom: 24px;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .story-bullets {
+            list-style: none;
+        }
+
+        .story-bullets li {
+            position: relative;
+            padding-left: 32px;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
+
+        .story-bullets li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* -------------------------------------
+           SECTION 8: Purity Proof
+        ------------------------------------- */
+        .purity {
+            padding: 80px 24px;
+            background-color: var(--forest2);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .purity .section-title {
+            color: var(--gold-pale);
+        }
+
+        .purity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .purity-card {
+            background-color: rgba(253, 248, 238, 0.03);
+            border: 1px solid rgba(253, 248, 238, 0.1);
+            padding: 32px 24px;
+            border-radius: 16px;
+        }
+
+        .purity-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .purity-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* -------------------------------------
+           Utilities & Responsive
+        ------------------------------------- */
+        /* -------------------------------------
+           SECTION 9: Testimonials
+        ------------------------------------- */
+        .testimonials {
+            padding: 80px 24px;
+            background-color: var(--cream);
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background-color: #fff;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(10, 26, 12, 0.05);
+            text-align: left;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+
+        .review-text {
+            font-size: 1rem;
+            color: var(--forest);
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: var(--forest);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .reviewer-loc {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* -------------------------------------
+           SECTION 10: Bulk Orders
+        ------------------------------------- */
+        .bulk-orders {
+            padding: 80px 24px;
+            background: linear-gradient(135deg, var(--forest), var(--forest2));
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .bulk-orders .section-title {
+            color: var(--gold-pale);
+        }
+
+        .tag-cloud {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tag {
+            background-color: rgba(253, 248, 238, 0.1);
+            border: 1px solid rgba(201, 144, 10, 0.3);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--gold-pale);
+        }
+
+        /* -------------------------------------
+           SECTION 11: FAQ
+        ------------------------------------- */
+        .faq {
+            padding: 80px 24px;
+            background-color: var(--cream);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(10, 26, 12, 0.1);
+            padding: 24px 0;
+        }
+
+        .faq-q {
+            font-weight: 700;
+            font-size: 1.15rem;
+            color: var(--forest);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-q::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--gold);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-q::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--muted);
+            margin-top: 0;
+            opacity: 0;
+        }
+
+        .faq-item.active .faq-a {
+            max-height: 200px;
+            margin-top: 16px;
+            opacity: 1;
+        }
+
+        /* -------------------------------------
+           SECTION 12: Footer
+        ------------------------------------- */
+        .footer {
+            background-color: var(--forest);
+            color: var(--cream);
+            padding: 60px 24px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(201, 144, 10, 0.2);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(253, 248, 238, 0.7);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: rgba(253, 248, 238, 0.5);
+            border-top: 1px solid rgba(253, 248, 238, 0.1);
+            padding-top: 24px;
+            margin-top: 32px;
+        }
+
+        /* -------------------------------------
+           SECTION 13: Floating WA & Modal
+        ------------------------------------- */
+        .fab-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            animation: pulse-wa 2s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .fab-wa:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse-wa {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(10, 26, 12, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: var(--cream);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 500px;
+            padding: 32px;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--forest);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(10, 26, 12, 0.15);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            background-color: #fff;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201, 144, 10, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-ctas { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto 40px;}
+            .btn-gold, .btn-outline-gold { width: 100%; }
+            .hero-stats { gap: 24px; }
+            .stat-item { width: calc(50% - 12px); }
+            .story-container { grid-template-columns: 1fr; gap: 40px; }
+            .story-visual { height: 350px; }
+            .floating-badge { right: 10px; bottom: 10px; }
+            
+            .modal-content {
+                margin-top: auto;
+                border-radius: 24px 24px 0 0;
+                padding: 24px;
+                transform: translateY(100%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION 1: Topbar -->
+    <div class="topbar">
+        🌱 Direct from our farms in Pampore, Kashmir
+    </div>
+
+    <!-- SECTION 2: Sticky Nav -->
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <span style="color: var(--gold)">✻</span> Kesar Harvester
+        </a>
+        <a href="#products" class="btn-gold" id="nav-order-btn">
+            Order on WhatsApp
+        </a>
+    </nav>
+
+    <!-- SECTION 3: Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Pure Kashmir.<br>Straight from our farm.</h1>
+            <p class="subtitle">Experience the authenticity of 3rd generation farming. No middlemen. Just the finest Saffron, Shilajit, and Dry Fruits delivered to your home.</p>
+            
+            <div class="hero-ctas">
+                <a href="#products" class="btn-gold" style="padding: 14px 28px; font-size: 1.1rem;">
+                    Order on WhatsApp
+                </a>
+                <a href="#products" class="btn-outline-gold" style="padding: 14px 28px; font-size: 1.1rem;">
+                    See Products
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-title">3rd Gen</div>
+                    <div class="stat-desc">Farmers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-title">Zero</div>
+                    <div class="stat-desc">Middlemen</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-title">100%</div>
+                    <div class="stat-desc">Pure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Trust Strip -->
+    <div class="trust-strip">
+        <div class="trust-track">
+            <div class="trust-item"><span class="trust-icon">✓</span> Lab Tested Purity</div>
+            <div class="trust-item"><span class="trust-icon">✓</span> ISO Certified</div>
+            <div class="trust-item"><span class="trust-icon">✓</span> Free Shipping</div>
+            <div class="trust-item"><span class="trust-icon">✓</span> Secure UPI Payment</div>
+            <div class="trust-item"><span class="trust-icon">✓</span> Farmer Direct Pricing</div>
+            <div class="trust-item"><span class="trust-icon">✓</span> Grade A Mongra</div>
+        </div>
+    </div>
+
+    <!-- SECTION 5: Products -->
+    <section id="products" class="products">
+        <h2 class="section-title">Our Harvest</h2>
+        <p class="section-subtitle">Pure, unadulterated goodness from the valleys of Kashmir.</p>
+        
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-visual">🌺</div>
+                <div class="product-content">
+                    <h3 class="product-title">Kashmiri Saffron (Kesar)</h3>
+                    <p class="product-desc">Grade A Mongra Saffron, handpicked from our Pampore farms.</p>
+                    
+                    <div class="size-selector">
+                        <div class="size-option selected" data-product="Saffron" data-size="1g" data-price="₹499">
+                            <span class="size-weight">1g Pack</span>
+                            <span class="size-price">₹499</span>
+                        </div>
+                        <div class="size-option" data-product="Saffron" data-size="5g" data-price="₹2,199">
+                            <span class="size-weight">5g Pack</span>
+                            <span class="size-price">₹2,199</span>
+                        </div>
+                        <div class="size-option" data-product="Saffron" data-size="10g" data-price="₹3,499">
+                            <span class="size-weight">10g Pack</span>
+                            <span class="size-price">₹3,499</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-gold btn-full order-trigger" data-product="Saffron">
+                        Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-visual" style="background: linear-gradient(135deg, #2b2b2b, #122017)">🏔️</div>
+                <div class="product-content">
+                    <h3 class="product-title">Himalayan Shilajit</h3>
+                    <p class="product-desc">Pure resin sourced from high altitudes, lab tested for safety.</p>
+                    
+                    <div class="size-selector">
+                        <div class="size-option selected" data-product="Shilajit" data-size="10g" data-price="₹699">
+                            <span class="size-weight">10g Resin</span>
+                            <span class="size-price">₹699</span>
+                        </div>
+                        <div class="size-option" data-product="Shilajit" data-size="20g" data-price="₹1,299">
+                            <span class="size-weight">20g Resin</span>
+                            <span class="size-price">₹1,299</span>
+                        </div>
+                        <div class="size-option" data-product="Shilajit" data-size="50g" data-price="₹2,499">
+                            <span class="size-weight">50g Resin</span>
+                            <span class="size-price">₹2,499</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-gold btn-full order-trigger" data-product="Shilajit">
+                        Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-visual" style="background: linear-gradient(135deg, #a47638, #5a3d13)">🌰</div>
+                <div class="product-content">
+                    <h3 class="product-title">Kashmir Dry Fruits</h3>
+                    <p class="product-desc">Premium Almonds, Walnuts, and more, shelled to order.</p>
+                    
+                    <div class="size-selector">
+                        <div class="size-option selected" data-product="DryFruits" data-size="250g" data-price="₹399">
+                            <span class="size-weight">250g Mixed</span>
+                            <span class="size-price">₹399</span>
+                        </div>
+                        <div class="size-option" data-product="DryFruits" data-size="500g" data-price="₹749">
+                            <span class="size-weight">500g Mixed</span>
+                            <span class="size-price">₹749</span>
+                        </div>
+                        <div class="size-option" data-product="DryFruits" data-size="1kg" data-price="₹1,199">
+                            <span class="size-weight">1kg Mixed</span>
+                            <span class="size-price">₹1,199</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-gold btn-full order-trigger" data-product="DryFruits">
+                        Order on WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: How to Order -->
+    <section class="how-to-order">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle" style="color: rgba(253,248,238,0.7)">Farm to home in 3 simple steps.</p>
+        
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <h3 class="step-title">Pick Product</h3>
+                <p>Select your desired quantity and click Order on WhatsApp.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <h3 class="step-title">WhatsApp Chat</h3>
+                <p>Confirm the details and share delivery address directly with us.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <h3 class="step-title">Pay & Receive</h3>
+                <p>Pay securely via UPI. We ship via Speed Post within 24 hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Story -->
+    <section class="story" id="story">
+        <div class="story-container">
+            <div class="story-visual">
+                🌾
+                <div class="floating-badge">3rd Gen<br>Farmers</div>
+            </div>
+            <div class="story-content">
+                <h2>Not just sellers.<br>We are the growers.</h2>
+                <p>Our family has been cultivating Saffron in the town of Pampore, Kashmir for three generations. We know real saffron because we grow it.</p>
+                <p>Instead of selling to middlemen who mix and dilute the quality, we decided to bring our harvest directly to your home.</p>
+                <ul class="story-bullets">
+                    <li>Harvested purely by hand</li>
+                    <li>Zero chemical treatments</li>
+                    <li>Sustainably grown in Pampore</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: Purity Proof -->
+    <section class="purity">
+        <h2 class="section-title">The Purity Promise</h2>
+        <p class="section-subtitle" style="color: rgba(253,248,238,0.7)">How to know you're getting the best.</p>
+        
+        <div class="purity-grid">
+            <div class="purity-card">
+                <div class="purity-icon">💧</div>
+                <h3 class="purity-title">Water Test</h3>
+                <p>Real saffron releases its color slowly. Fake saffron turns water immediately red.</p>
+            </div>
+            <div class="purity-card">
+                <div class="purity-icon">👃</div>
+                <h3 class="purity-title">Aroma</h3>
+                <p>Sweet, floral, and earthy. If it smells like nothing, it is likely dyed corn silk.</p>
+            </div>
+            <div class="purity-card">
+                <div class="purity-icon">👅</div>
+                <h3 class="purity-title">Taste</h3>
+                <p>Authentic Kashmiri saffron is slightly bitter, never sweet.</p>
+            </div>
+            <div class="purity-card">
+                <div class="purity-icon">📜</div>
+                <h3 class="purity-title">Lab Tested</h3>
+                <p>Every batch is tested for crocin (color), picrocrocin (flavor), and safranal (aroma).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: Testimonials -->
+    <section class="testimonials">
+        <h2 class="section-title">Word from the Valley</h2>
+        <p class="section-subtitle">Real reviews from our satisfied customers across India.</p>
+        
+        <div class="testimonials-grid">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"I've tried many saffron brands, but the aroma of Kesar Harvester's Mongra is unmatched. You can tell it's directly from the farm."</p>
+                <div class="reviewer-name">Rahul Sharma</div>
+                <div class="reviewer-loc">Delhi</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"The Shilajit quality is excellent. Dissolves perfectly and gives me energy throughout the day. Super fast delivery too!"</p>
+                <div class="reviewer-name">Vikram Singh</div>
+                <div class="reviewer-loc">Mumbai</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"Ordered the dry fruits and saffron combo. The walnuts were fresh and the saffron added such beautiful color to my cooking."</p>
+                <div class="reviewer-name">Priya Patel</div>
+                <div class="reviewer-loc">Ahmedabad</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: Bulk Orders -->
+    <section class="bulk-orders">
+        <h2 class="section-title">For Restaurants & Retailers</h2>
+        <p class="section-subtitle" style="color: rgba(253,248,238,0.7)">Get consistent, premium quality at wholesale pricing.</p>
+        
+        <div class="tag-cloud">
+            <span class="tag">Mithai Shops</span>
+            <span class="tag">Ayurvedic Brands</span>
+            <span class="tag">Hotels & Restaurants</span>
+            <span class="tag">Premium Gifting</span>
+            <span class="tag">Wedding Planners</span>
+        </div>
+        
+        <a href="https://wa.me/918825034663?text=Hi,%20I%20would%20like%20to%20inquire%20about%20bulk%20pricing." target="_blank" class="btn-gold" style="padding: 14px 28px; font-size: 1.1rem;">
+            Inquire Bulk Pricing
+        </a>
+    </section>
+
+    <!-- SECTION 11: FAQ -->
+    <section class="faq">
+        <h2 class="section-title" style="text-align: center;">Frequently Asked Questions</h2>
+        
+        <div class="faq-list" style="margin-top: 40px;">
+            <div class="faq-item">
+                <div class="faq-q">Is the shipment safe?</div>
+                <div class="faq-a">Yes, we package our products securely in airtight containers and use reliable courier partners to ensure safe delivery across India.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How do I know this is real Kashmiri Saffron?</div>
+                <div class="faq-a">Our saffron undergoes rigorous lab testing to ensure maximum crocin, picrocrocin, and safranal content. You're buying directly from our family farm in Pampore.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What are the payment options?</div>
+                <div class="faq-a">Currently, we accept payments exclusively through secure UPI (GPay/PhonePe/Paytm). After confirming your order on WhatsApp, we'll share our UPI details.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How long does delivery take?</div>
+                <div class="faq-a">We dispatch within 24 hours. Depending on your location in India, it typically takes 3-5 working days to reach you.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Do you have an expiry date?</div>
+                <div class="faq-a">Yes, each batch comes with a packaged date and recommended use-by date. Saffron retains its quality for 2-3 years if stored properly in a cool, dark place.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Can I return my order?</div>
+                <div class="faq-a">Due to the consumable nature of our products, we don't accept returns. However, if your package arrives damaged, please share photos on WhatsApp and we will replace it.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: Footer -->
+    <footer class="footer">
+        <a href="#" class="footer-logo">Kesar Harvester</a>
+        <p style="margin-bottom: 24px; color: rgba(253,248,238,0.7);">Pure Kashmir. Straight from our farm.</p>
+        
+        <div class="footer-links">
+            <a href="#products">Products</a>
+            <a href="#story">Our Story</a>
+            <a href="#">Track Order</a>
+            <a href="#">Contact Us</a>
+        </div>
+        
+        <p>WhatsApp: +91 8825034663<br>Pampore, Kashmir, India</p>
+        
+        <div class="footer-copy">
+            &copy; 2026 Kesar Harvester. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- SECTION 13: Floating WA FAB -->
+    <a href="https://wa.me/918825034663" target="_blank" class="fab-wa">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- Modal: Order -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h3 class="section-title" style="font-size: 1.8rem; margin-bottom: 24px;">Complete Your Order</h3>
+            
+            <form id="orderForm">
+                <div class="form-group">
+                    <label class="form-label" for="customerName">Name *</label>
+                    <input type="text" id="customerName" class="form-control" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="customerCity">City & State *</label>
+                    <input type="text" id="customerCity" class="form-control" required placeholder="e.g. Mumbai, Maharashtra">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="orderProduct">Product *</label>
+                    <select id="orderProduct" class="form-control" required>
+                        <option value="Saffron">Kashmiri Saffron (Kesar)</option>
+                        <option value="Shilajit">Himalayan Shilajit</option>
+                        <option value="DryFruits">Kashmir Dry Fruits</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="orderSize">Size/Quantity *</label>
+                    <select id="orderSize" class="form-control" required>
+                        <!-- Populated dynamically via JS -->
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="orderNotes">Any Notes? (Optional)</label>
+                    <input type="text" id="orderNotes" class="form-control" placeholder="e.g. Please pack properly for gifting">
+                </div>
+                
+                <button type="submit" class="btn-gold btn-full" style="font-size: 1.1rem; padding: 14px;">
+                    Send Details on WhatsApp
+                </button>
+                <p style="text-align: center; font-size: 0.85rem; color: var(--muted); margin-top: 12px;">We'll confirm availability and share UPI details.</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const CONFIG = {
+            wa: '918825034663',
+            instagram: 'kesarharvester',
+            youtube: 'KesarHarvester',
+            email: 'kesarharvester@gmail.com',
+        };
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const q = item.querySelector('.faq-q');
+            q.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Product selection logic
+        const productSizes = {
+            Saffron: [
+                { size: '1g Pack', price: '₹499' },
+                { size: '5g Pack', price: '₹2,199' },
+                { size: '10g Pack', price: '₹3,499' }
+            ],
+            Shilajit: [
+                { size: '10g Resin', price: '₹699' },
+                { size: '20g Resin', price: '₹1,299' },
+                { size: '50g Resin', price: '₹2,499' }
+            ],
+            DryFruits: [
+                { size: '250g Mixed', price: '₹399' },
+                { size: '500g Mixed', price: '₹749' },
+                { size: '1kg Mixed', price: '₹1,199' }
+            ]
+        };
+
+        // Handle size option clicks in product cards
+        document.querySelectorAll('.size-option').forEach(option => {
+            option.addEventListener('click', (e) => {
+                const parent = option.closest('.size-selector');
+                parent.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+
+        // Modal Logic
+        const modal = document.getElementById('orderModal');
+        const closeModalBtn = document.getElementById('closeModal');
+        const productSelect = document.getElementById('orderProduct');
+        const sizeSelect = document.getElementById('orderSize');
+
+        function updateSizeOptions(productKey, defaultSize = null) {
+            sizeSelect.innerHTML = '';
+            productSizes[productKey].forEach(item => {
+                const opt = document.createElement('option');
+                opt.value = `${item.size} - ${item.price}`;
+                opt.textContent = `${item.size} - ${item.price}`;
+                if (defaultSize && item.size.includes(defaultSize)) {
+                    opt.selected = true;
+                }
+                sizeSelect.appendChild(opt);
+            });
+        }
+
+        // Initialize modal when opening
+        document.querySelectorAll('.order-trigger').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const productKey = btn.getAttribute('data-product');
+                productSelect.value = productKey;
+                
+                // Get selected size from the card
+                const card = btn.closest('.product-card');
+                const selectedSizeEl = card.querySelector('.size-option.selected');
+                const defaultSize = selectedSizeEl ? selectedSizeEl.getAttribute('data-size') : null;
+                
+                updateSizeOptions(productKey, defaultSize);
+                modal.classList.add('active');
+            });
+        });
+
+        // Update sizes when product dropdown changes
+        productSelect.addEventListener('change', (e) => {
+            updateSizeOptions(e.target.value);
+        });
+
+        // Close modal
+        closeModalBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Close when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        // Global Order WhatsApp Button (Nav)
+        document.getElementById('nav-order-btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            productSelect.value = 'Saffron';
+            updateSizeOptions('Saffron');
+            modal.classList.add('active');
+        });
+
+        // Handle Form Submit -> WhatsApp Redirect
+        document.getElementById('orderForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('customerName').value;
+            const city = document.getElementById('customerCity').value;
+            const productText = productSelect.options[productSelect.selectedIndex].text;
+            const size = sizeSelect.value;
+            const notes = document.getElementById('orderNotes').value;
+            
+            let message = `*NEW ORDER - KESAR HARVESTER*%0A%0A`;
+            message += `*Name:* ${name}%0A`;
+            message += `*City:* ${city}%0A`;
+            message += `*Product:* ${productText}%0A`;
+            message += `*Size/Price:* ${size}%0A`;
+            if (notes) {
+                message += `*Notes:* ${notes}%0A`;
+            }
+            message += `%0APlease confirm availability and share UPI details.`;
+            
+            const waUrl = `https://wa.me/${CONFIG.wa}?text=${message}`;
+            window.open(waUrl, '_blank');
+            
+            // Show brief success alert or just close modal
+            modal.classList.remove('active');
+        });
+    </script>
+</body>
+</html>
